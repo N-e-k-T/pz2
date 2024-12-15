@@ -2,34 +2,34 @@ name: C++ Tests
 
 on:
   push:
-    branches: 
+    branches:
       - '*'
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install cmake g++
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install cmake g++
 
-    - name: Create Build Directory
-      run: mkdir build
+      - name: Create Build Directory
+        run: mkdir build
 
-    - name: Configure CMake
-      working-directory: build
-      run: cmake ..
+      - name: Configure CMake
+        working-directory: build
+        run: cmake ..
 
-    - name: Build Project
-      working-directory: build
-      run: make
+      - name: Build Project
+        working-directory: build
+        run: make
 
-    - name: Run Tests
-      working-directory: build
-      run: ./test
+      - name: Run Tests
+        working-directory: build
+        run: ./test
