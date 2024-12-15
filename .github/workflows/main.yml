@@ -1,4 +1,4 @@
-name: C++ Tests
+name: C++ Tests and Documentation
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install cmake g++
+          sudo apt-get install cmake g++ doxygen graphviz
 
       - name: Create Build Directory
         run: mkdir build
@@ -33,3 +33,11 @@ jobs:
       - name: Run Tests
         working-directory: build
         run: ./test
+
+      - name: Generate Doxygen Documentation
+        working-directory: build
+        run: |
+          echo "PROJECT_NAME = My C++ Project" > Doxyfile
+          echo "INPUT = ../add.cpp ../subtract.cpp ../test.cpp ../main.cpp" >> Doxyfile
+          echo "OUTPUT_DIRECTORY = docs" >> Doxyfile
+          doxygen Doxyfile
