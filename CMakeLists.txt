@@ -4,8 +4,9 @@ project(MyProject)
 # Исполняемый файл main
 add_executable(main main.cpp)
 
+# Файл для тестов
+add_library(testlib main.cpp) # Создаем библиотеку из main.cpp
+
 # Исполняемый файл test (для тестов)
 add_executable(test test.cpp)
-
-# Добавляем main.cpp к test, чтобы он видел функцию add
-target_sources(test PRIVATE main.cpp)
+target_link_libraries(test testlib) # Подключаем библиотеку testlib к test
