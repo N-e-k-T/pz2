@@ -4,8 +4,8 @@ project(MyProject)
 # Исполняемый файл main
 add_executable(main main.cpp)
 
-# Файл для тестов
-add_library(testlib main.cpp) # Создаем библиотеку из main.cpp
+# Файл для тестов (библиотека)
+add_library(testlib add.cpp) # Создаем библиотеку из add.cpp
 
 # Исполняемый файл test (для тестов)
 add_executable(test test.cpp)
