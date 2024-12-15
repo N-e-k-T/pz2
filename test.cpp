@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cassert>
 
-int add(int a, int b); // объявление функции add
+int add(int a, int b); // объявление функции add123
 int subtract(int a, int b); //объявление функции subtract
 
 int main() {
